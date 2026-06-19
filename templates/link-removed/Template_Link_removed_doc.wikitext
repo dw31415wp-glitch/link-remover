@@ -1,0 +1,107 @@
+{{Documentation subpage}}
+
+{{Uses Lua|Module:Link removed}}
+
+== Purpose ==
+{{tl|Link removed}} displays ordinary label text followed by a superscript marker linking to [[Wikipedia:Link Removed]]. It is intended for cases where a link target has been deliberately removed while preserving the readable label in article text.
+
+The template renders the label as plain text, then appends:
+
+<syntaxhighlight lang="html" inline><sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup></syntaxhighlight>
+
+== Usage ==
+<syntaxhighlight lang="wikitext">
+{{Link removed|label}}
+</syntaxhighlight>
+
+Tracking parameters can be kept in the source without changing the rendered output:
+
+<syntaxhighlight lang="wikitext">
+{{Link removed
+ | Burke's Peerage and Gentry
+ | linkhostpath = archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529
+ | protocol = https
+}}
+</syntaxhighlight>
+
+== Examples ==
+{| class="wikitable"
+! Wikitext
+! Result
+|-
+| <syntaxhighlight lang="wikitext" inline>{{Link removed|Burke's Peerage and Gentry}}</syntaxhighlight>
+| Burke's Peerage and Gentry <sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup>
+|-
+| <syntaxhighlight lang="wikitext" inline>{{Link removed|label=Example source|linkhostpath=example.org/page|protocol=http}}</syntaxhighlight>
+| Example source <sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup>
+|}
+
+== Parameters ==
+{| class="wikitable"
+! Parameter
+! Description
+! Required
+|-
+| <code>1</code>
+| Label text to display before the link removed marker. Preferred over <code>label</code> when both are provided.
+| Yes
+|-
+| <code>label</code>
+| Named form of the label text.
+| No
+|-
+| <code>linkhostpath</code>
+| Optional tracking value for the removed link host and path. This value is kept in wikitext for maintenance and is not rendered.
+| No
+|-
+| <code>protocol</code>
+| Optional tracking value for the removed link protocol. Defaults to <code>https</code> and is not rendered.
+| No
+|}
+
+<templatedata>
+{
+	"description": "Renders plain label text followed by a superscript link removed marker.",
+	"params": {
+		"1": {
+			"label": "Label",
+			"description": "Text to display before the link removed marker. Preferred over the named label parameter when both are provided.",
+			"type": "line",
+			"required": true,
+			"example": "Burke's Peerage and Gentry"
+		},
+		"label": {
+			"label": "Label",
+			"description": "Named form of the display label. The positional label is preferred when both are provided.",
+			"type": "line",
+			"required": false
+		},
+		"linkhostpath": {
+			"label": "Link host path",
+			"description": "Optional tracking value for the removed link host and path. This value is kept in wikitext for maintenance and is not rendered.",
+			"type": "line",
+			"required": false,
+			"example": "archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529"
+		},
+		"protocol": {
+			"label": "Protocol",
+			"description": "Optional tracking value for the removed link protocol. This value defaults to https and is not rendered.",
+			"type": "line",
+			"default": "https",
+			"required": false,
+			"example": "https"
+		}
+	},
+	"paramOrder": [
+		"1",
+		"label",
+		"linkhostpath",
+		"protocol"
+	],
+	"format": "block"
+}
+</templatedata>
+
+<includeonly>
+<!-- Add template categories here when deploying on-wiki. -->
+</includeonly>

@@ -1,0 +1,89 @@
+{{Documentation subpage}}
+
+== Purpose ==
+'''Module:Link removed''' implements {{tl|Link removed}}. It renders a plain-text label followed by a superscript marker linking to [[Wikipedia:Link Removed]].
+
+The rendered marker is:
+
+<syntaxhighlight lang="html" inline><sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup></syntaxhighlight>
+
+The module accepts tracking parameters for the removed link source, but those tracking values are intentionally not rendered.
+
+== Usage ==
+This module is normally used through {{tl|Link removed}}:
+
+<syntaxhighlight lang="wikitext">
+{{Link removed|Burke's Peerage and Gentry}}
+</syntaxhighlight>
+
+With tracking parameters:
+
+<syntaxhighlight lang="wikitext">
+{{Link removed
+ | Burke's Peerage and Gentry
+ | linkhostpath = archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529
+ | protocol = https
+}}
+</syntaxhighlight>
+
+It may also be invoked directly:
+
+<syntaxhighlight lang="wikitext">
+{{#invoke:Link removed|main|Burke's Peerage and Gentry}}
+</syntaxhighlight>
+
+== Public functions ==
+{| class="wikitable"
+! Function
+! Description
+|-
+| <code>main(frame)</code>
+| Entry point for template and direct <code>#invoke</code> use. Merges parent template arguments with direct module arguments, with direct arguments taking precedence.
+|-
+| <code>_main(args)</code>
+| Internal/testable entry point that accepts an argument table and returns the rendered label plus marker.
+|}
+
+== Parameters ==
+{| class="wikitable"
+! Parameter
+! Description
+! Rendered?
+|-
+| <code>1</code>
+| Label text to display before the link removed marker. Preferred over <code>label</code> when both are provided.
+| Yes
+|-
+| <code>label</code>
+| Named form of the label text.
+| Yes
+|-
+| <code>linkhostpath</code>
+| Optional tracking value for the removed link host and path.
+| No
+|-
+| <code>protocol</code>
+| Optional tracking value for the removed link protocol. Defaults to <code>https</code> when omitted or blank.
+| No
+|}
+
+== Examples ==
+{| class="wikitable"
+! Invocation
+! Result
+|-
+| <syntaxhighlight lang="wikitext" inline>{{#invoke:Link removed|main|Burke's Peerage and Gentry}}</syntaxhighlight>
+| Burke's Peerage and Gentry <sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup>
+|-
+| <syntaxhighlight lang="wikitext" inline>{{#invoke:Link removed|main|label=Example source|linkhostpath=example.org/page|protocol=http}}</syntaxhighlight>
+| Example source <sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup>
+|}
+
+== Implementation notes ==
+* Labels are escaped with <code>mw.text.nowiki</code> so the label renders as normal text rather than wikitext.
+* <code>linkhostpath</code> and <code>protocol</code> are preserved for maintenance tooling but are not displayed.
+* The module uses <code>require('strict')</code>.
+
+<includeonly>
+<!-- Add module categories here when deploying on-wiki. -->
+</includeonly>

@@ -1,0 +1,3 @@
+{{#invoke:Link removed|main|1={{{1|}}}|label={{{label|}}}|linkhostpath={{{linkhostpath|}}}|protocol={{{protocol|https}}}}}<noinclude>
+{{Documentation}}
+</noinclude>
