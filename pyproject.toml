@@ -1,0 +1,7 @@
+[project]
+name = "link-remover"
+version = "0.0.0"
+description = "Static Toolforge-style Python project setup for link-remover."
+requires-python = ">=3.11"
+dependencies = []
+

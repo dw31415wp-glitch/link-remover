@@ -1,0 +1,62 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  python:
+    name: Python validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Check Python syntax
+        run: |
+          python - <<'PY'
+          import pathlib
+          import py_compile
+          import subprocess
+          import sys
+
+          tracked = subprocess.check_output(
+              ["git", "ls-files", "*.py"],
+              text=True,
+          ).splitlines()
+
+          if not tracked:
+              print("No tracked Python files to compile.")
+              sys.exit(0)
+
+          for filename in tracked:
+              py_compile.compile(filename, doraise=True)
+              print(f"Compiled {pathlib.Path(filename)}")
+          PY
+
+      - name: Check package metadata
+        run: |
+          python - <<'PY'
+          import tomllib
+
+          with open("pyproject.toml", "rb") as project_file:
+              project = tomllib.load(project_file)
+
+          assert project["project"]["name"] == "link-remover"
+          assert project["project"]["dependencies"] == []
+          PY
