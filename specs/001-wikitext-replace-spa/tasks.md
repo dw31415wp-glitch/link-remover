@@ -100,9 +100,9 @@
 - [X] T029 Review keyboard navigation, visible labels, disabled states, and status message placement in `index.html` against `specs/001-wikitext-replace-spa/contracts/ui-workflow.md`.
 - [X] T030 Review `index.html` for unnecessary dependencies, server assumptions, credential handling, and any behavior that conflicts with `.specify/memory/constitution.md`.
 - [X] T031 [P] Update `specs/001-wikitext-replace-spa/quickstart.md` if final control names or local validation steps differ from the implemented `index.html`.
-- [ ] T032 Run the Python dependency install validation from `specs/001-wikitext-replace-spa/quickstart.md` in an isolated virtual environment if the system Python blocks direct pip installs.
-- [ ] T033 Run the Python syntax and package metadata validation commands from `specs/001-wikitext-replace-spa/quickstart.md`.
-- [ ] T034 Run all manual browser scenarios in `specs/001-wikitext-replace-spa/quickstart.md` from a local static server and record any deviations before completion.
+- [X] T032 Run the Python dependency install validation from `specs/001-wikitext-replace-spa/quickstart.md` in an isolated virtual environment if the system Python blocks direct pip installs.
+- [X] T033 Run the Python syntax and package metadata validation commands from `specs/001-wikitext-replace-spa/quickstart.md`.
+- [X] T034 Run all manual browser scenarios in `specs/001-wikitext-replace-spa/quickstart.md` from a local static server and record any deviations before completion.
 
 ---
 
