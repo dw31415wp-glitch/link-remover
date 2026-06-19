@@ -12,9 +12,9 @@
 
 **Purpose**: Confirm the current static SPA surface and validation baseline before feature work starts.
 
-- [ ] T001 Confirm `index.html` still contains pinned React 18.2.0, ReactDOM 18.2.0, and Babel standalone 7.23.9 CDN imports with no new dependency requirement.
-- [ ] T002 Confirm `requirements.txt`, `pyproject.toml`, and `.github/workflows/validate.yml` remain compatible with the no-new-dependencies plan.
-- [ ] T003 [P] Review `specs/001-wikitext-replace-spa/contracts/ui-workflow.md` and `specs/001-wikitext-replace-spa/data-model.md` before editing `index.html`.
+- [X] T001 Confirm `index.html` still contains pinned React 18.2.0, ReactDOM 18.2.0, and Babel standalone 7.23.9 CDN imports with no new dependency requirement.
+- [X] T002 Confirm `requirements.txt`, `pyproject.toml`, and `.github/workflows/validate.yml` remain compatible with the no-new-dependencies plan.
+- [X] T003 [P] Review `specs/001-wikitext-replace-spa/contracts/ui-workflow.md` and `specs/001-wikitext-replace-spa/data-model.md` before editing `index.html`.
 
 ---
 
@@ -24,11 +24,11 @@
 
 **CRITICAL**: No user story implementation should begin until this phase is complete.
 
-- [ ] T004 Replace the placeholder React render in `index.html` with a semantic single-page shell containing a `<main>` region and form sections for the workflow.
-- [ ] T005 Add responsive CSS in `index.html` for the shell layout, labels, inputs, textareas, action buttons, status messages, preview blocks, and disabled states.
-- [ ] T006 Define supported site metadata for `en` and `test` in `index.html`, including labels and derived hosts for retrieval and handoff.
-- [ ] T007 Add shared React state in `index.html` for selected site, page title, find wikitext, replacement wikitext, retrieved page text, match result, status, and message text.
-- [ ] T008 Add shared helper functions in `index.html` for parsing page titles, deriving selected-site URLs, replacing exact literal wikitext, counting matches, and resetting stale preview state after input changes.
+- [X] T004 Replace the placeholder React render in `index.html` with a semantic single-page shell containing a `<main>` region and form sections for the workflow.
+- [X] T005 Add responsive CSS in `index.html` for the shell layout, labels, inputs, textareas, action buttons, status messages, preview blocks, and disabled states.
+- [X] T006 Define supported site metadata for `en` and `test` in `index.html`, including labels and derived hosts for retrieval and handoff.
+- [X] T007 Add shared React state in `index.html` for selected site, page title, find wikitext, replacement wikitext, retrieved page text, match result, status, and message text.
+- [X] T008 Add shared helper functions in `index.html` for parsing page titles, deriving selected-site URLs, replacing exact literal wikitext, counting matches, and resetting stale preview state after input changes.
 
 **Checkpoint**: Foundation ready; user story implementation can now begin.
 
@@ -42,14 +42,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T009 [US1] Add the Wikipedia site dropdown to `index.html` with exactly `en` and `test` options and default state set to `en`.
-- [ ] T010 [US1] Add labeled Page, Find wikitext, and Replace wikitext controls to `index.html`, using multiline controls for both wikitext fields.
-- [ ] T011 [US1] Implement required-input validation in `index.html` for selected site, page title, and find wikitext before any page retrieval begins.
-- [ ] T012 [US1] Implement selected-site public page wikitext retrieval in `index.html` for the normalized page title, with loading and retrieval-error states.
-- [ ] T013 [US1] Implement exact literal match counting and replacement preparation in `index.html`, including support for multiline find and replacement values.
-- [ ] T014 [US1] Preserve selected site, page title, find wikitext, and replacement wikitext in `index.html` after validation errors, no-match results, and retrieval failures.
-- [ ] T015 [US1] Add clear empty-replacement messaging in `index.html` so a blank replacement is presented as intentional removal before review.
-- [ ] T016 [US1] Manually validate User Story 1 with `specs/001-wikitext-replace-spa/quickstart.md` scenarios 1, 2, and 4.
+- [X] T009 [US1] Add the Wikipedia site dropdown to `index.html` with exactly `en` and `test` options and default state set to `en`.
+- [X] T010 [US1] Add labeled Page, Find wikitext, and Replace wikitext controls to `index.html`, using multiline controls for both wikitext fields.
+- [X] T011 [US1] Implement required-input validation in `index.html` for selected site, page title, and find wikitext before any page retrieval begins.
+- [X] T012 [US1] Implement selected-site public page wikitext retrieval in `index.html` for the normalized page title, with loading and retrieval-error states.
+- [X] T013 [US1] Implement exact literal match counting and replacement preparation in `index.html`, including support for multiline find and replacement values.
+- [X] T014 [US1] Preserve selected site, page title, find wikitext, and replacement wikitext in `index.html` after validation errors, no-match results, and retrieval failures.
+- [X] T015 [US1] Add clear empty-replacement messaging in `index.html` so a blank replacement is presented as intentional removal before review.
+- [X] T016 [US1] Manually validate User Story 1 with `specs/001-wikitext-replace-spa/quickstart.md` scenarios 1, 2, and 4.
 
 **Checkpoint**: User Story 1 is fully functional and independently testable as the MVP.
 
@@ -63,12 +63,12 @@
 
 ### Implementation for User Story 2
 
-- [ ] T017 [US2] Add a review panel in `index.html` that displays replacement count, selected site, normalized page title, find wikitext, and replacement wikitext after a successful match.
-- [ ] T018 [US2] Add readable before-and-after preview blocks in `index.html` for the matched source text and proposed replacement text.
-- [ ] T019 [US2] Implement the no-match review state in `index.html` so no handoff action is available when exact find wikitext is absent.
-- [ ] T020 [US2] Implement recoverable validation, loading, retrieval-error, no-match, and ready-for-review status messages in `index.html` without relying on color alone.
-- [ ] T021 [US2] Add the representative Pamela Liversidge example as non-intrusive helper text or sample-fill affordance in `index.html`, matching the exact values in `specs/001-wikitext-replace-spa/spec.md`.
-- [ ] T022 [US2] Manually validate User Story 2 with `specs/001-wikitext-replace-spa/quickstart.md` scenarios 1, 3, and 4.
+- [X] T017 [US2] Add a review panel in `index.html` that displays replacement count, selected site, normalized page title, find wikitext, and replacement wikitext after a successful match.
+- [X] T018 [US2] Add readable before-and-after preview blocks in `index.html` for the matched source text and proposed replacement text.
+- [X] T019 [US2] Implement the no-match review state in `index.html` so no handoff action is available when exact find wikitext is absent.
+- [X] T020 [US2] Implement recoverable validation, loading, retrieval-error, no-match, and ready-for-review status messages in `index.html` without relying on color alone.
+- [X] T021 [US2] Add the representative Pamela Liversidge example as non-intrusive helper text or sample-fill affordance in `index.html`, matching the exact values in `specs/001-wikitext-replace-spa/spec.md`.
+- [X] T022 [US2] Manually validate User Story 2 with `specs/001-wikitext-replace-spa/quickstart.md` scenarios 1, 3, and 4.
 
 **Checkpoint**: User Stories 1 and 2 work independently; users can stop safely after preview.
 
@@ -82,12 +82,12 @@
 
 ### Implementation for User Story 3
 
-- [ ] T023 [US3] Add a Continue to Wikipedia action in `index.html` that is disabled or hidden until a nonzero match result is ready for review.
-- [ ] T024 [US3] Implement selected-site edit review handoff in `index.html` by submitting the reviewed updated wikitext to the selected Wikipedia host for the normalized page title.
-- [ ] T025 [US3] Include a concise edit summary in the `index.html` handoff that describes the wikitext replacement without claiming automated publishing.
-- [ ] T026 [US3] Add handoff status text in `index.html` explaining that Wikipedia handles login state, diff review, edit conflicts, and final saving.
-- [ ] T027 [US3] Verify `index.html` contains no username, password, OAuth, bot-password, private edit-token, or secret input controls.
-- [ ] T028 [US3] Manually validate User Story 3 with `specs/001-wikitext-replace-spa/quickstart.md` scenario 5 for both `en` and `test` when suitable pages are available.
+- [X] T023 [US3] Add a Continue to Wikipedia action in `index.html` that is disabled or hidden until a nonzero match result is ready for review.
+- [X] T024 [US3] Implement selected-site edit review handoff in `index.html` by submitting the reviewed updated wikitext to the selected Wikipedia host for the normalized page title.
+- [X] T025 [US3] Include a concise edit summary in the `index.html` handoff that describes the wikitext replacement without claiming automated publishing.
+- [X] T026 [US3] Add handoff status text in `index.html` explaining that Wikipedia handles login state, diff review, edit conflicts, and final saving.
+- [X] T027 [US3] Verify `index.html` contains no username, password, OAuth, bot-password, private edit-token, or secret input controls.
+- [X] T028 [US3] Manually validate User Story 3 with `specs/001-wikitext-replace-spa/quickstart.md` scenario 5 for both `en` and `test` when suitable pages are available.
 
 **Checkpoint**: All user stories are independently functional and the shell never represents handoff as a saved edit.
 
@@ -97,9 +97,9 @@
 
 **Purpose**: Validate accessibility, static deployment fit, and documentation consistency across the completed feature.
 
-- [ ] T029 Review keyboard navigation, visible labels, disabled states, and status message placement in `index.html` against `specs/001-wikitext-replace-spa/contracts/ui-workflow.md`.
-- [ ] T030 Review `index.html` for unnecessary dependencies, server assumptions, credential handling, and any behavior that conflicts with `.specify/memory/constitution.md`.
-- [ ] T031 [P] Update `specs/001-wikitext-replace-spa/quickstart.md` if final control names or local validation steps differ from the implemented `index.html`.
+- [X] T029 Review keyboard navigation, visible labels, disabled states, and status message placement in `index.html` against `specs/001-wikitext-replace-spa/contracts/ui-workflow.md`.
+- [X] T030 Review `index.html` for unnecessary dependencies, server assumptions, credential handling, and any behavior that conflicts with `.specify/memory/constitution.md`.
+- [X] T031 [P] Update `specs/001-wikitext-replace-spa/quickstart.md` if final control names or local validation steps differ from the implemented `index.html`.
 - [ ] T032 Run the Python dependency install validation from `specs/001-wikitext-replace-spa/quickstart.md` in an isolated virtual environment if the system Python blocks direct pip installs.
 - [ ] T033 Run the Python syntax and package metadata validation commands from `specs/001-wikitext-replace-spa/quickstart.md`.
 - [ ] T034 Run all manual browser scenarios in `specs/001-wikitext-replace-spa/quickstart.md` from a local static server and record any deviations before completion.

@@ -13,4 +13,14 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .venv/
-
+venv/
+dist/
+build/
+*.log
+.env*
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
