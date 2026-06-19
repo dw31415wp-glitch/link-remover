@@ -1,7 +1,16 @@
 .agents/
-.specify
+.specify/*
+!.specify/memory/
+.specify/memory/*
+!.specify/memory/constitution.md
+!.specify/templates/
+.specify/templates/*
+!.specify/templates/plan-template.md
+!.specify/templates/spec-template.md
+!.specify/templates/tasks-template.md
 __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
 .venv/
+
