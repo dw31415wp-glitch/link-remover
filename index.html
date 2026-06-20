@@ -103,6 +103,26 @@
       align-items: start;
     }
 
+    .page-footer {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+      line-height: 1.5;
+      box-shadow: 0 1px 2px rgba(31, 37, 32, 0.04);
+    }
+
+    .page-footer a {
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    .page-footer a:hover {
+      color: var(--accent);
+    }
+
     .panel {
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -392,6 +412,7 @@
 
     const DEPRECATED_ARCHIVE_HOSTS = new Set([
       "archive.today",
+      "archive_blacklist.today",
       "archive.is",
       "archive.ph",
       "archive.vn",
@@ -755,7 +776,7 @@
 
         const fields = {
           wpTextbox1: matchResult.updatedContent,
-          wpSummary: "Blacklist link removal. See [[Wikipedia_talk:Archive.today_guidance##Feedback requested on Template:Deprecated archive]]",
+          wpSummary: "Blacklist link removal. See [[Wikipedia_talk:Archive.today_guidance#Feedback requested on Template:Deprecated archive]]",
           wpDiff: "Show changes",
           wpUltimateParam: "1",
           wpEditToken: "+\\",
@@ -917,6 +938,26 @@
               </div>
             </section>
           </div>
+
+          <footer className="page-footer">
+            Source:{" "}
+            <a
+              href="https://github.com/dw31415wp-glitch/link-remover"
+              target="_blank"
+              rel="noreferrer"
+            >
+              dw31415wp-glitch/link-remover
+            </a>
+            . Inspired by{" "}
+            <a
+              href="https://fixarchive.toolforge.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              fixarchive.toolforge.org
+            </a>
+            .
+          </footer>
         </main>
       );
     }

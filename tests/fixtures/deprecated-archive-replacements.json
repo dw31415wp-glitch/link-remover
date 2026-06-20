@@ -5,6 +5,11 @@
     "replace": "{{Deprecated archive|https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html|Feature story}}"
   },
   {
+    "name": "archive blacklist placeholder link with label text",
+    "find": "[https://archive_blacklist.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html Archive]",
+    "replace": "{{Deprecated archive|https://archive_blacklist.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html|Archive}}"
+  },
+  {
     "name": "link with apostrophes in the label",
     "find": "[https://archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529 Burke's Peerage and Gentry]",
     "replace": "{{Deprecated archive|https://archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529|Burke's Peerage and Gentry}}"

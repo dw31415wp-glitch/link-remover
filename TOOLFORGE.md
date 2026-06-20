@@ -32,7 +32,9 @@ return `Permission denied (publickey)` for `git@gitlab.wikimedia.org:...`.
 ## 4. Create the webservice
 
 ```bash
-./toolforge_recreate_job.sh
+toolforge build start https://github.com/dw31415wp-glitch/link-remover
+toolforge build show
+toolforge webservice buildservice start --mount=none
 ```
 
 ## 5. Manage the job
