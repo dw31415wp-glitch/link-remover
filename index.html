@@ -640,10 +640,11 @@
         clearPreparedState(STATUS.idle, "Sample loaded");
       }
 
-      function handleFindBlur() {
+      function handleGenerateReplacement() {
         const generatedReplacement = generateLinkRemovedTemplate(findWikitext);
 
         if (!findWikitext.trim()) {
+          clearPreparedState(STATUS.validationError, "Find wikitext is required before generating a replacement.");
           return;
         }
 
@@ -736,7 +737,7 @@
 
         const fields = {
           wpTextbox1: matchResult.updatedContent,
-          wpSummary: "Prepare wikitext replacement using Link Remover; review before saving.",
+          wpSummary: "Blacklist link removal. See [[Wikipedia_talk:Archive.today_guidance#Wrap_standalone,_blacklisted_link]]",
           wpDiff: "Show changes",
           wpUltimateParam: "1",
           wpEditToken: "+\\",
@@ -812,7 +813,6 @@
                     id="findWikitext"
                     value={findWikitext}
                     onChange={handleInputChange(setFindWikitext)}
-                    onBlur={handleFindBlur}
                     spellCheck="false"
                   />
                 </div>
@@ -828,6 +828,13 @@
                 </div>
 
                 <div className="actions">
+                  <button
+                    className="secondary"
+                    type="button"
+                    onClick={handleGenerateReplacement}
+                  >
+                    Generate replacement
+                  </button>
                   <button className="primary" type="submit" disabled={status === STATUS.loading}>
                     {status === STATUS.loading ? "Searching..." : "Search/Preview"}
                   </button>
