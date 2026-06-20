@@ -8,6 +8,7 @@
 The template renders the label as plain text, then appends:
 
 <syntaxhighlight lang="html" inline><sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup></syntaxhighlight>
+<syntaxhighlight lang="html" inline><span style="text-decoration: underline;">Burke's Peerage and Gentry</span><sup>&#91;[[Wikipedia:Link_Removed|Link Removed]]&#93;</sup></syntaxhighlight>
 
 == Usage ==
 <syntaxhighlight lang="wikitext">

@@ -143,6 +143,15 @@
       color: var(--text);
     }
 
+    .info-hint {
+      justify-self: start;
+      color: var(--accent);
+      cursor: help;
+      font-size: 0.85rem;
+      text-decoration: underline dotted;
+      text-underline-offset: 2px;
+    }
+
     input,
     select,
     textarea {
@@ -798,6 +807,7 @@
 
                 <div className="field">
                   <label htmlFor="findWikitext">Find wikitext</label>
+                  <span className="info-hint" title="[https://archive.example.com/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529 Burke's Peerage and Gentry]">(example)</span>
                   <textarea
                     id="findWikitext"
                     value={findWikitext}
