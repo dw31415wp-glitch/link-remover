@@ -1,4 +1,4 @@
-# Data Model: Auto Link Removed Replacement
+# Data Model: Auto Deprecated Archive Replacement
 
 ## Entity: Find Wikitext
 
@@ -11,7 +11,7 @@ Represents the exact source text entered or prefilled for the find field.
 
 **Validation Rules**
 
-- A supported value is exactly one bracketed external-link expression of the form `[URL label]` after trimming leading and trailing whitespace.
+- A supported value is exactly one bracketed external-link expression of the form `[URL label]` or `[URL]` after trimming leading and trailing whitespace.
 - Unsupported values remain valid as manual find text but do not produce an auto-generated replacement.
 
 ## Entity: URL Prefill Parameters
@@ -37,15 +37,14 @@ Represents a successful parse of supported bracketed external-link wikitext.
 
 **Fields**
 
-- `protocol`: URL protocol without trailing colon; defaults to `https` only when unavailable.
-- `linkhostpath`: URL host plus path, query string, and fragment, excluding protocol marker.
-- `label`: Text after the URL inside the bracketed link.
+- `archiveUrl`: Original URL text from the external link, including protocol.
+- `label`: Optional text after the URL inside the bracketed link.
 
 **Validation Rules**
 
-- `label` must be non-empty.
-- `linkhostpath` must be non-empty.
-- The source find value must contain one URL and one label within a single bracketed expression.
+- `archiveUrl` must be non-empty and parse as an HTTP(S) URL with an archive.today-family host.
+- `label`, when present, must not contain `|`, `=`, or template braces because generated output uses positional template parameters.
+- The source find value must contain one URL and optional label within a single bracketed expression.
 
 ## Entity: Generated Replacement
 
@@ -53,12 +52,12 @@ Represents the replacement text created from a parsed external link.
 
 **Fields**
 
-- `value`: `{{Link removed|label|linkhostpath=...|protocol=...}}`
+- `value`: `{{Deprecated archive|archiveUrl|label}}` when a label exists, or `{{Deprecated archive|archiveUrl}}` when no label exists.
 - `sourceFindValue`: Find wikitext used to generate this value.
 
 **Validation Rules**
 
-- Generated value must include label, `linkhostpath`, and `protocol`.
+- Generated value must include the original archive URL as parameter 1 and must not include `sourceurl`, `title`, `archivehostpath`, or `protocol`.
 - The replacement field may be updated only when empty or still equal to the previous generated value.
 
 ## Entity: Replacement Edit State

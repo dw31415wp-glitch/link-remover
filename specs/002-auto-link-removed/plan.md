@@ -6,7 +6,7 @@
 
 ## Summary
 
-Enhance the existing static replacement shell so users can paste a single bracketed external-link wikitext value into the find field and have the replacement field auto-populated with a `{{Link removed}}` template when the find field loses focus. Add URL prefill support for `site`, `page`, and encoded `find` parameters so external workflows can open the shell with fields already populated. The feature remains entirely in `index.html`, uses no new dependencies, and preserves the existing search, preview, and Wikipedia handoff flow.
+Enhance the existing static replacement shell so users can paste a single bracketed archive.today external-link wikitext value into the find field and generate a `{{Deprecated archive}}` replacement using the simplified positional interface. Add URL prefill support for `site`, `page`, and encoded `find` parameters so external workflows can open the shell with fields already populated. The feature remains entirely in `index.html`, uses no new dependencies, and preserves the existing search, preview, and Wikipedia handoff flow.
 
 ## Technical Context
 
@@ -76,7 +76,7 @@ No constitution violations. No complexity exceptions are required.
 See [research.md](./research.md) for resolved decisions. Key outcomes:
 
 - Parse only one full bracketed external-link wikitext value.
-- Generate `{{Link removed|label|linkhostpath=...|protocol=...}}`.
+- Generate `{{Deprecated archive|ARCHIVE_URL|TITLE}}` or `{{Deprecated archive|ARCHIVE_URL}}` when no label exists.
 - Preserve manual replacement edits by tracking whether the existing replacement is empty, generated, or user-edited.
 - Use canonical query parameters `site`, `page`, and `find`.
 - Keep URL encoding/decoding entirely client-side and dependency-free.
@@ -90,5 +90,5 @@ See [data-model.md](./data-model.md) for transient entities, [contracts/ui-url-c
 - Static SPA: PASS. Design artifacts keep all feature behavior in `index.html`.
 - Toolforge compatibility: PASS. URL prefill and auto-generation are local browser behavior with no secrets or services.
 - Minimal dependencies: PASS. No new browser CDN imports or Python dependencies are required.
-- Client-side safety/accessibility: PASS. UI contract requires visible labels, keyboard-compatible blur behavior, and status feedback.
+- Client-side safety/accessibility: PASS. UI contract requires visible labels, keyboard-compatible generation behavior, and status feedback.
 - Lightweight validation: PASS. Quickstart uses existing repository validation plus focused manual browser scenarios.

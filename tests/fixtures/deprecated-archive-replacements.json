@@ -1,0 +1,24 @@
+[
+  {
+    "name": "normal archive.today link with label text",
+    "find": "[https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html Feature story]",
+    "replace": "{{Deprecated archive|https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html|Feature story}}"
+  },
+  {
+    "name": "link with apostrophes in the label",
+    "find": "[https://archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529 Burke's Peerage and Gentry]",
+    "replace": "{{Deprecated archive|https://archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529|Burke's Peerage and Gentry}}"
+  },
+  {
+    "name": "link with no label",
+    "find": "[https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html]",
+    "replace": "{{Deprecated archive|https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html}}"
+  },
+  {
+    "name": "Maurer citation example",
+    "find": "[https://archive.today/20230820144531/https://media.defense.gov/2010/Dec/02/2001329899/-1/-1/0/AFD-101202-002.pdf Combat Squadrons of the Air Force: World War II]",
+    "replace": "{{Deprecated archive|https://archive.today/20230820144531/https://media.defense.gov/2010/Dec/02/2001329899/-1/-1/0/AFD-101202-002.pdf|Combat Squadrons of the Air Force: World War II}}",
+    "sourceText": "* Maurer, Maurer. ''[https://archive.today/20230820144531/https://media.defense.gov/2010/Dec/02/2001329899/-1/-1/0/AFD-101202-002.pdf Combat Squadrons of the Air Force: World War II]''. [[Maxwell Air Force Base]], Alabama: Office of Air Force History, 1982.",
+    "updatedText": "* Maurer, Maurer. ''{{Deprecated archive|https://archive.today/20230820144531/https://media.defense.gov/2010/Dec/02/2001329899/-1/-1/0/AFD-101202-002.pdf|Combat Squadrons of the Air Force: World War II}}''. [[Maxwell Air Force Base]], Alabama: Office of Air Force History, 1982."
+  }
+]

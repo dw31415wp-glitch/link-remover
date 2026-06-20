@@ -1,4 +1,4 @@
-# Quickstart: Auto Link Removed Replacement
+# Quickstart: Auto Deprecated Archive Replacement
 
 ## Prerequisites
 
@@ -39,9 +39,10 @@ with open("pyproject.toml", "rb") as project_file:
 assert project["project"]["name"] == "link-remover"
 assert project["project"]["dependencies"] == []
 PY
+node tests/scripts/generate-deprecated-archive.test.mjs
 ```
 
-Expected outcome: dependencies install successfully in an isolated environment, Python syntax validation either compiles tracked Python files or reports that none exist, and package metadata remains valid.
+Expected outcome: dependencies install successfully in an isolated environment, Python syntax validation either compiles tracked Python files or reports that none exist, package metadata remains valid, and Deprecated archive replacement fixtures pass.
 
 ## Local Browser Run
 
@@ -55,51 +56,68 @@ Then open `http://localhost:8000/`.
 
 Expected outcome: the shell loads without build steps or additional runtime services.
 
-## Scenario 1: Auto-Generate Replacement On Blur
+## Scenario 1: Generate Deprecated Archive Replacement
 
 1. Leave the replacement field empty.
 2. Paste this into Find wikitext:
 
 ```text
-[https://archive.example.com/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529 Burke's Peerage and Gentry]
+[https://archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529 Burke's Peerage and Gentry]
 ```
 
-3. Move focus away from the find field.
+3. Use Generate replacement.
 
 Expected replacement:
 
 ```text
-{{Link removed|Burke's Peerage and Gentry|linkhostpath=archive.example.com/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529|protocol=https}}
+{{Deprecated archive|https://archive.today/20130118233601/http://www.burkespeerage.com/FamilyHomepage.aspx?FID=8529|Burke's Peerage and Gentry}}
 ```
 
-## Scenario 2: Preserve Manual Replacement
+## Scenario 2: Generate Bare Deprecated Archive Replacement
+
+1. Leave the replacement field empty.
+2. Paste this into Find wikitext:
+
+```text
+[https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html]
+```
+
+3. Use Generate replacement.
+
+Expected replacement:
+
+```text
+{{Deprecated archive|https://archive.today/20131217001046/http://archives.dailynews.lk/2003/10/18/fea05.html}}
+```
+
+## Scenario 3: Preserve Manual Replacement
 
 1. Enter any supported bracketed external-link find value.
 2. Type a custom value in Replace wikitext.
-3. Move focus away from Find wikitext.
+3. Use Generate replacement.
 
 Expected outcome: the custom replacement remains unchanged.
 
-## Scenario 3: Unsupported Find Text
+## Scenario 4: Unsupported Find Text
 
 1. Enter plain text, malformed bracketed link text, or multiple external links in Find wikitext.
-2. Move focus away from Find wikitext.
+2. Use Generate replacement.
 
 Expected outcome: no replacement template is generated, and manual replacement remains possible.
 
-## Scenario 4: HTTP Protocol
+## Scenario 5: Apostrophes In Label Text
 
-1. Enter a find value beginning with `http://`.
-2. Move focus away from Find wikitext.
+1. Enter the Burke's Peerage example from Scenario 1.
+2. Use Generate replacement.
 
-Expected outcome: the generated template includes `protocol=http`.
+Expected outcome: the apostrophe in `Burke's Peerage and Gentry` is preserved in positional parameter 2.
 
-## Scenario 5: URL Prefill
+## Scenario 6: URL Prefill
 
 Open:
 
 ```text
-http://localhost:8000/?site=en&page=Pamela_Liversidge&find=%5Bhttps%3A%2F%2Farchive.example.com%2F20130118233601%2Fhttp%3A%2F%2Fwww.burkespeerage.com%2FFamilyHomepage.aspx%3FFID%3D8529%20Burke's%20Peerage%20and%20Gentry%5D
+http://localhost:8000/?site=en&page=Pamela_Liversidge&find=%5Bhttps%3A%2F%2Farchive.today%2F20130118233601%2Fhttp%3A%2F%2Fwww.burkespeerage.com%2FFamilyHomepage.aspx%3FFID%3D8529%20Burke's%20Peerage%20and%20Gentry%5D
 ```
 
 Expected outcome:
@@ -107,9 +125,9 @@ Expected outcome:
 - Site is `en`.
 - Page displays as `Pamela Liversidge`.
 - Find wikitext displays as the decoded bracketed external link.
-- Replacement auto-generates to the expected `{{Link removed}}` template.
+- Replacement auto-generates to the expected `{{Deprecated archive}}` template.
 
-## Scenario 6: Malformed URL Prefill
+## Scenario 7: Malformed URL Prefill
 
 Open the shell with missing, unsupported, or malformed `site`, `page`, or `find` parameters.
 

@@ -31,4 +31,4 @@
 
 ## Notes
 
-- Validation passed after adding URL prefill parameters for site, page, and encoded find wikitext. The specification treats the requested blur-triggered behavior as a user interaction requirement and keeps the parsing scope limited to one bracketed external link.
+- Validation passed after adding URL prefill parameters for site, page, and encoded find wikitext. The specification treats replacement generation as a user interaction requirement and keeps the parsing scope limited to one bracketed external link.

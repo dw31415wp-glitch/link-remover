@@ -20,7 +20,7 @@
 
 **Purpose**: Add the shared parsing and generated-replacement state used by all stories.
 
-- [X] T002 Implement shared bracketed external-link parsing, `{{Link removed}}` generation, and generated-vs-manual replacement state helpers in `index.html`
+- [X] T002 Implement shared bracketed external-link parsing, `{{Deprecated archive}}` generation, and generated-vs-manual replacement state helpers in `index.html`
 
 **Checkpoint**: Foundation ready - user story implementation can begin.
 
@@ -28,11 +28,11 @@
 
 ## Phase 3: User Story 1 - Auto-Fill Replacement From Find Wikitext (Priority: P1) MVP
 
-**Goal**: Generate a `{{Link removed}}` replacement when the find field loses focus with supported bracketed external-link wikitext.
+**Goal**: Generate a `{{Deprecated archive}}` replacement for supported bracketed archive.today external-link wikitext.
 
-**Independent Test**: Paste the example find wikitext, blur the find field, and confirm the expected replacement template appears without starting a page search.
+**Independent Test**: Paste the example find wikitext, use Generate replacement, and confirm the expected replacement template appears without starting a page search.
 
-- [X] T003 [US1] Wire find-field `onBlur` auto-generation, status feedback, protocol handling, and manual-edit preservation in `index.html`
+- [X] T003 [US1] Wire replacement generation, status feedback, full archive URL preservation, and manual-edit preservation in `index.html`
 
 **Checkpoint**: User Story 1 is independently functional.
 
@@ -42,7 +42,7 @@
 
 **Goal**: Ensure unsupported or malformed find text never overwrites a replacement value.
 
-**Independent Test**: Enter plain text, malformed bracketed text, and multiple links; blur the find field and confirm replacement text remains unchanged.
+**Independent Test**: Enter plain text, malformed bracketed text, and multiple links; use Generate replacement and confirm replacement text remains unchanged.
 
 - [X] T004 [US2] Handle unsupported find values and non-blocking unsupported-status feedback in `index.html`
 
@@ -97,7 +97,7 @@
 
 1. Complete T001 and T002.
 2. Complete T003 for User Story 1.
-3. Validate the blur-to-template example before continuing.
+3. Validate the generate-to-template example before continuing.
 
 ### Incremental Delivery
 
